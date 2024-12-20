@@ -1,0 +1,11 @@
+/* .vishay-suchi ul li a{
+    text-decoration: none;
+}
+.vishay-suchi ul li{
+    list-style: none;
+} */
+.vishay-suchi{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 30px 30px;
+}
