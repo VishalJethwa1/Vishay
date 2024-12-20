@@ -35,38 +35,39 @@ if (isset($_POST['create'])) {
 
     <h1>Admin Dashboard</h1>
 
+    <div class="container">
     <button class="js-modal-trigger button" data-target="modal-js-example">
   + New Vishay
     </button>
+    </div>
+
+    <div class="container">
+
+    </div>
+    
 
     <div id="modal-js-example" class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Create a New Vishay!</p>
-      <button class="delete" aria-label="close"></button>
-    </header>
-    <section class="modal-card-body">
-
-      <form action="" method="POST">
-
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Create a New Vishay!</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+      <section class="modal-card-body">
+        <form action="" method="POST">
       <div class="field">
-  <div class="control">
-    <input class="input" type="text" name="vishay" placeholder="New Vishay">
-  </div>
-</div>
-
-      
-
-    </section>
-    <footer class="modal-card-foot">
-      <div class="buttons">
-        <button type="submit" name="create" class="button is-success">Create</button>
-        <button class="button">Cancel</button>
-      </div>
-    </footer>
-
-    </form>
+        <div class="control">
+          <input class="input" type="text" name="vishay" placeholder="New Vishay">
+        </div>
+    </div>
+      </section>
+        <footer class="modal-card-foot">
+          <div class="buttons">
+            <button type="submit" name="create" class="button is-success">Create</button>
+            <button class="button">Cancel</button>
+          </div>
+        </footer>
+      </form>
   </div>
 </div>
 
