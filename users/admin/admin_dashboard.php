@@ -30,6 +30,7 @@ if (isset($_POST['create'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/28d6c61512.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -75,31 +76,46 @@ if (isset($_POST['create'])) {
 
 <div class="container vishay-suchi">
 
-  <?php
+  
 
-    $sql = "SELECT * FROM subject_list";
-    $result = $conn->query($sql);
+    <table class="table is-narrow mt-5">
+      <thead>
+        <th>S#</th>
+        <th>Vishay</th>
+        <th></th>
+      </thead>
+      <tbody>
+          <?php
 
-    if ($result->num_rows > 0) {
-      while ($row = $result->fetch_assoc()) {
-    ?>
+            $sql = "SELECT * FROM subject_list";
+            $result = $conn->query($sql);
+            
+            if ($result->num_rows > 0) {
+              while ($row = $result->fetch_assoc()) {
+          ?>
+            <tr>
+              <td><?php ?></td>
+              <td><?php echo $row['vishay'] ?></td>
+              <td>
+                <span>
+                  <span class="mr-3"><a href=""><i class="fa-regular fa-eye"></i></a></span>
+                  <span class="mr-3"><a href=""><i class="fa-solid fa-pen"></i></a></span>
+                  <span class="mr-3"><a href=""><i class="fa-solid fa-delete-left"></i></a></span>
+                
+                </span>
+              </td>
+              
+            </tr>
+            <?php }
+            }
+          ?>
+        </td>
+      </tr>
+      </tbody>
 
-    <div class="card">
-      <div class="card-content">
-        <div class="content">
-        <?php echo $row['vishay']; ?>
-        </div>
-        <footer class="card-footer">
-    <a href="#" class="card-footer-item">Save</a>
-    <a href="#" class="card-footer-item">Edit</a>
-    <a href="#" class="card-footer-item">Delete</a>
-  </footer>
-      </div>
-    </div>
+    </table>
         
-    <?php }
-      }
-    ?>
+    
 
 
   
