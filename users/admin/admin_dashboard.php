@@ -74,11 +74,20 @@ if (isset($_POST['create'])) {
 
 
 
-<div class="container vishay-suchi">
+<div class="container">
+
+<div class="field mt-3">
+  <div class="control has-icons-right">
+    <input class="input is-success" type="text" placeholder="Search Vishay...">
+    <span class="icon is-small is-right">
+      <i class="fas fa-magnifying-glass"></i>
+    </span>
+  </div>
+</div>
 
   
 
-    <table class="table is-narrow mt-5">
+    <table class="table is-fullwidth `mt-5">
       <thead>
         <th>S#</th>
         <th>Vishay</th>
@@ -88,28 +97,35 @@ if (isset($_POST['create'])) {
           <?php
 
             $sql = "SELECT * FROM subject_list";
+            global $result;
             $result = $conn->query($sql);
+
+            $sno = 1;
+              while ($sno < $result->num_rows) {
+                $sno;
+                
             
             if ($result->num_rows > 0) {
               while ($row = $result->fetch_assoc()) {
           ?>
             <tr>
-              <td><?php ?></td>
+              <td class="table is-narrow"><?php echo $sno; ?></td>
               <td><?php echo $row['vishay'] ?></td>
-              <td>
+              <td class="table is-narrow">
                 <span>
-                  <span class="mr-3"><a href=""><i class="fa-regular fa-eye"></i></a></span>
-                  <span class="mr-3"><a href=""><i class="fa-solid fa-pen"></i></a></span>
-                  <span class="mr-3"><a href=""><i class="fa-solid fa-delete-left"></i></a></span>
-                
+                  <span class="mr-3 "><a href=""><i class="fa-regular fa-eye has-text-info"></i></a></span>
+                  <span class="mr-3 "><a href=""><i class="fa-solid fa-pen has-text-success"></i></a></span>
+                  <span class="mr-3 "><a href=""><i class="fa-solid fa-delete-left has-text-warning"></i></a></span>
                 </span>
               </td>
-              
+              <?php $sno++;
+              }?>
             </tr>
             <?php }
             }
+            
           ?>
-        </td>
+        </td>        
       </tr>
       </tbody>
 
