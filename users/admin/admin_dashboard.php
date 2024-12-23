@@ -108,10 +108,9 @@ if (isset($_POST['create'])) {
             if ($result->num_rows > 0) {
               while ($row = $result->fetch_assoc()) {
           ?>
-          
+            
 
           <tr>
-          
               <td class="table is-narrow"><?php echo $sno; ?></td>
               <td><?php echo $row['vishay'] ?></td>
               <td class="table is-narrow">
