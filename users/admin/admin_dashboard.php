@@ -4,14 +4,14 @@ include '../../../vishay/connections.php';
 
 
 if (isset($_POST['create'])) {
-  $selectID = "SELECT id FROM subject_list";
-  $resID = $conn->query($selectID);
-  $id = $resID->fetch_assoc();
-  $id = $row['id'];
-  $id = (string) $id;
-  $vishayTitle = $_POST['vishay'];
+  // $selectID = "SELECT id FROM subject_list";
+  // $resID = $conn->query($selectID);
+  // $id = $resID->fetch_assoc();
+  // $id = $row['id'];
+  // $id = (string) $id;
+  $vishayTitle = $conn->real_escape_string($_POST['vishay']);
 
-  $sql = "INSERT INTO `subject_list`(`id`, `vishay`) VALUES ('$id', '$vishayTitle')";
+  $sql = "INSERT INTO `subject_list`(`vishay`) VALUES ('$vishayTitle')";
 
   $result = $conn->query($sql);
 
