@@ -4,9 +4,14 @@ include '../../../vishay/connections.php';
 
 
 if (isset($_POST['create'])) {
+  $selectID = "SELECT id FROM subject_list";
+  $resID = $conn->query($selectID);
+  $id = $resID->fetch_assoc();
+  $id = $row['id'];
+  $id = (string) $id;
   $vishayTitle = $_POST['vishay'];
 
-  $sql = "INSERT INTO `subject_list`(`vishay`) VALUES ('$vishayTitle')";
+  $sql = "INSERT INTO `subject_list`(`id`, `vishay`) VALUES ('$id', '$vishayTitle')";
 
   $result = $conn->query($sql);
 
@@ -108,23 +113,21 @@ if (isset($_POST['create'])) {
             if ($result->num_rows > 0) {
               while ($row = $result->fetch_assoc()) {
           ?>
-            
-
+           
           <tr>
               <td class="table is-narrow"><?php echo $sno; ?></td>
               <td><?php echo $row['vishay'] ?></td>
               <td class="table is-narrow">
                 <span>
                   <span class="mr-3 "><a href=""><i class="fa-regular fa-eye has-text-info"></i></a></span>
-                  <span class="mr-3 "><a href=""><i class="fa-solid fa-pen has-text-success"></i></a></span>
+                  <!-- <span class="mr-3 "><a href=""><i class="fa-solid fa-pen has-text-success"></i></a></span> -->
                   <span class="mr-3 "><a href=""><i class="fa-solid fa-delete-left has-text-warning"></i></a></span>
                 </span>
               </td>
              
               <?php $sno++;
               }?>
-            </tr>
- 
+          </tr>
             
             <?php }
             }
